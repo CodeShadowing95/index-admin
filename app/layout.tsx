@@ -1,6 +1,5 @@
-import { Navbar, Sidebar } from '@/components';
+import { Navbar, Sidebar, Provider } from '@/components';
 import '@/styles/globals.css';
-import Head from 'next/head';
 
 export const metadata = {
     title: 'Portail Index Admin',
@@ -10,17 +9,19 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
     return (
         <html lang="en">
-            <Head>
+            <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            </Head>
+            </head>
             <body>
-                <div className="w-[100dvw] min-h-[100dvh] flex relative">
-                    <Sidebar />
-                    <div className="flex-1">
-                        <Navbar />
-                        {children}
+                {/* <Provider> */}
+                    <div className="w-[100dvw] min-h-[100dvh] flex relative">
+                        <Sidebar />
+                        <div className="flex-1">
+                            <Navbar />
+                            {children}
+                        </div>
                     </div>
-                </div>
+                {/* </Provider> */}
             </body>
         </html>
     )
