@@ -1,8 +1,9 @@
+import Image from 'next/image'
 import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center border-b px-8 py-4 shadow sticky">
+    <div className="flex justify-between items-center border-b px-8 py-2 shadow sticky top-0 z-50 bg-white">
         <form>
             <label htmlFor='search' className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
             <div className="relative">
@@ -15,10 +16,39 @@ const Navbar = () => {
             </div>
         </form>
 
-        {/* Bouton Notifications */}
-        <button className="flex items-center font-semibold p-2 rounded hover:bg-orange-100">
-            <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24"><path fill="currentColor" d="M21 19v1H3v-1l2-2v-6c0-3.1 2.03-5.83 5-6.71V4a2 2 0 0 1 2-2a2 2 0 0 1 2 2v.29c2.97.88 5 3.61 5 6.71v6zm-7 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2"/></svg>
-        </button>
+        <div className="flex items-center gap-2">
+          {/* Date now like Lun, 31 Jan 2022 */}
+          <div className="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M9 10v2H7v-2zm4 0v2h-2v-2zm4 0v2h-2v-2zm2-7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V1h2v2h8V1h2v2zm0 16V8H5v11zM9 14v2H7v-2zm4 0v2h-2v-2zm4 0v2h-2v-2z"/></svg>
+            <p className="text-gray-500 text-sm font-medium">
+              {new Date().toLocaleString('fr-FR', {
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+              })}
+            </p>
+          </div>
+          {/* Bouton Notifications */}
+          <button className="flex items-center font-semibold p-2 rounded hover:bg-orange-100 relative">
+              <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5 text-gray-700' viewBox="0 0 24 24"><path fill="currentColor" d="M21 19v1H3v-1l2-2v-6c0-3.1 2.03-5.83 5-6.71V4a2 2 0 0 1 2-2a2 2 0 0 1 2 2v.29c2.97.88 5 3.61 5 6.71v6zm-7 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2"/></svg>
+              <div className="absolute inline-flex items-center justify-center w-3 h-3 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full top-1 end-1"></div>
+          </button>
+          {/* Bouton Aide */}
+          <button className="flex items-center font-semibold p-2 rounded hover:bg-orange-100 relative">
+            <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5 text-gray-700' viewBox="0 0 24 24"><path fill="currentColor" d="m15.07 11.25l-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2a2 2 0 0 0-2 2H8a4 4 0 0 1 4-4a4 4 0 0 1 4 4a3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10c0-5.53-4.5-10-10-10" /></svg>
+          </button>
+          {/* Divider */}
+          <div className="w-[1px] h-6 mx-1 bg-gray-300"></div>
+          {/* Avatar */}
+          <div className="flex items-center cursor-pointer">
+            <div className="flex items-center gap-2">
+                <span className="font-semibold">Olivier</span>
+                <Image src="/assets/149071.png" width={25} height={25} alt="profile"/>
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24"><path fill="currentColor" d="m7 10l5 5l5-5z"/></svg>
+            </div>
+          </div>
+        </div>
     </div>
   )
 }
