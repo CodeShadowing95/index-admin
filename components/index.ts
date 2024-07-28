@@ -5,6 +5,7 @@ import Dashboard from "./Dashboard";
 import LocalInfos from "./LocalInfos";
 import Videos from "./Videos";
 import VideoCard from "./VideoCard";
+import LoginForm from "./LoginForm";
 
 import Provider from "./Provider";
 
@@ -16,6 +17,7 @@ export {
     LocalInfos,
     Videos,
     VideoCard,
+    LoginForm,
 
     Provider,
 }
