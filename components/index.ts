@@ -15,6 +15,9 @@ import VideoCard from "./VideoCard";
 import UserCard from "./UserCard";
 import ServiceCard from "./ServiceCard";
 
+// ModalOverlay
+import ModalOverlay from "./ModalOverlay";
+
 // Providers
 import Provider from "./Provider";
 
@@ -31,6 +34,8 @@ export {
     VideoCard,
     UserCard,
     ServiceCard,
+
+    ModalOverlay,
 
     Provider,
 }

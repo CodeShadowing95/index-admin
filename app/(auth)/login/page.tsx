@@ -51,7 +51,7 @@ const Login = () => {
 
       {/* Overlay */}
       <div className="flex justify-center items-center w-full h-full bg-black bg-opacity-70 z-20 p-4">
-        <div className="w-full max-w-[500px] h-full max-h-[calc(100vh-80px)] rounded-xl p-8 relative overflow-hidden">
+        <div className="w-full max-w-[500px] h-full max-h-[calc(100vh-350px)] rounded-xl p-8 relative overflow-hidden">
           {/* Bg image */}
           <div className="absolute inset-0 overflow-hidden">
             <Image src="/assets/waves.png" alt="banner" width={2000} height={2000} className="w-full h-full object-cover" />

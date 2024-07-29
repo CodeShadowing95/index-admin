@@ -27,8 +27,8 @@ const VideoCard = ({ thumbnail, title, description, videoSrc }: { thumbnail: str
           <Image
             src={thumbnail}
             alt="Video Thumbnail"
-            layout="fill"
-            objectFit="cover"
+            fill
+            style={{ objectFit: 'cover' }}
           />
           {/* Play Icon */}
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -52,12 +52,12 @@ const VideoCard = ({ thumbnail, title, description, videoSrc }: { thumbnail: str
           <div className="font-bold text-xl mb-2">{title}</div>
           {/* Fully rounded buttons with bg-white and shadow Edit and Delete */}
           <div className="flex justify-start opacity-0 group-hover:opacity-100 transition-all">
-            <button type="button" className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24"><path fill="currentColor" d="m19.65 6.5l-2.74-3.54l3.93-.78l.78 3.92zm-2.94.57l-2.74-3.53l-1.97.39l2.75 3.53zM2 10v10a2 2 0 0 0 2 2h7v-2.87L20.13 10zm9.81-1.95L9.07 4.5l-1.97.41l2.75 3.53zM4.16 5.5l-.98.19a2.01 2.01 0 0 0-1.57 2.35L2 10l4.9-.97zM13 19.96V22h2.04l6.13-6.12l-2.04-2.05zm9.85-6.49l-1.32-1.32c-.2-.2-.53-.2-.72 0l-.98.98l2.04 2.04l.98-.98c.2-.19.2-.52 0-.72" /></svg>
-            </button>
-            <button type="button" className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24"><path fill="currentColor" d="M14.75 7.46L12 3.93l1.97-.39l2.74 3.53zm-2.94.59L9.07 4.5l-1.97.41l2.75 3.53zm9.81-1.95l-.78-3.92l-3.93.78l2.74 3.54zM19 13c1.1 0 2.12.3 3 .81V10H2v10a2 2 0 0 0 2 2h9.81c-.51-.88-.81-1.9-.81-3c0-3.31 2.69-6 6-6M4.16 5.5l-.98.19a2.01 2.01 0 0 0-1.57 2.35L2 10l4.9-.97zm18.38 11.38l-1.42-1.41L19 17.59l-2.12-2.12l-1.41 1.41L17.59 19l-2.12 2.12l1.41 1.42L19 20.41l2.12 2.13l1.42-1.42L20.41 19z" /></svg>
-            </button>
+            <div className="flex justify-center items-center w-8 h-8 text-gray-500 rounded-full hover:bg-gray-200 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
+            </div>
+            <div className="flex justify-center items-center w-8 h-8 text-red-500 rounded-full hover:bg-red-100 cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M6 19a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7H6zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12l1.41 1.41L13.41 14l2.12 2.12l-1.41 1.41L12 15.41l-2.12 2.12l-1.41-1.41L10.59 14zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+            </div>
           </div>
         </div>
         <p className="text-gray-700 text-sm line-clamp-3 mt-2">

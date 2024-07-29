@@ -72,6 +72,17 @@ const Sidebar = () => {
               </Link>
             </li>
             <li>
+              <Link href="/dashboard/audios" className={`flex items-center gap-2 p-2 text-sm rounded ${selected === "audios" ? "bg-white font-semibold" : "font-medium hover:bg-orange-50"}`} onClick={() => setSelected("audios")} onMouseEnter={() => setTooltip("Audios")} onMouseLeave={() => setTooltip("")}>
+                <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2M7.76 16.24l-1.41 1.41A7.9 7.9 0 0 1 4 12c0-2.05.78-4.1 2.34-5.66l1.41 1.41A6.05 6.05 0 0 0 6 12c0 1.54.59 3.07 1.76 4.24M12 16a4 4 0 0 1-4-4a4 4 0 0 1 4-4a4 4 0 0 1 4 4a4 4 0 0 1-4 4m5.66 1.66l-1.41-1.41A6.05 6.05 0 0 0 18 12c0-1.54-.59-3.07-1.76-4.24l1.41-1.41A7.9 7.9 0 0 1 20 12c0 2.05-.78 4.1-2.34 5.66M12 10a2 2 0 0 0-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2"/></svg>
+                <p className={`${isCollapsed ? "hidden" : "hidden md:block"}`}>Audios</p>
+
+                {/* Tooltip */}
+                <div role="tooltip" className={`absolute -right-1 translate-x-full w-fit z-50 inline-block px-3 py-2 text-sm font-medium text-white text-nowrap bg-gray-800 rounded-lg shadow-sm transition-all ${tooltip === "Audios" && isCollapsed ? "opacity-100 visible" : "opacity-0 invisible"}`}>
+                  Audios
+                </div>
+              </Link>
+            </li>
+            <li>
               <Link href="/dashboard/services-index" className={`flex items-center gap-2 p-2 text-sm rounded ${selected === "Services" ? "bg-white font-semibold" : "font-medium hover:bg-orange-50"}`} onClick={() => setSelected("Services")} onMouseEnter={() => setTooltip("Services")} onMouseLeave={() => setTooltip("")}>
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24"><path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.62L12 2L9.19 8.62L2 9.24l5.45 4.73L5.82 21z"/></svg>
                 <p className={`${isCollapsed ? "hidden" : "hidden md:block"}`}>Services</p>
