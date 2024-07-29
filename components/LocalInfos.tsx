@@ -64,11 +64,24 @@ const LocalInfos = () => {
                 Publié
               </span>
               {/* Actions */}
-              <button className="flex items-center font-semibold w-6 h-6 rounded border-2 border-gray-300">
+              <button className="relative flex items-center font-semibold w-6 h-6 rounded border-2 border-gray-300">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-fit h-fit text-gray-700" viewBox="0 0 24 24"><path fill="currentColor" d="M16 12a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2"/></svg>
+                <div className="absolute -bottom-2 translate-y-full right-0 w-[150px] max-w-[150px] rounded shadow bg-white p-2 z-10">
+                  <p className="text-xs text-gray-400 font-normal text-start mb-2">Actions</p>
+                  <div className="flex flex-col">
+                    <div className="flex items-center gap-2 p-1 hover:bg-gray-100 rounded text-[13px]">
+                      Modifier
+                    </div>
+                    {/* Divider */}
+                    <div className="w-full h-[1px] bg-gray-300 my-1"></div>
+                    <div className="flex items-center gap-2 p-1 hover:bg-red-100 rounded text-[13px] text-red-500">
+                      Supprimer
+                    </div>
+                  </div>
+                </div>
               </button>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 z-0">
               <div className="w-[100px] h-16 bg-gray-300 rounded animate-pulse"></div>
               <div className="w-[1px] bg-gray-300"></div>
               <div className="w-[100px] h-16 bg-gray-300 rounded animate-pulse"></div>
@@ -107,51 +120,6 @@ const LocalInfos = () => {
               <span className="bg-amber-100 text-amber-700 border-2 border-amber-600 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-2.5 h-2.5 me-1.5" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="currentColor"/></svg>
                 En attente de publication
-              </span>
-              {/* Actions */}
-              <button className="flex items-center font-semibold w-6 h-6 rounded border-2 border-gray-300">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-fit h-fit text-gray-700" viewBox="0 0 24 24"><path fill="currentColor" d="M16 12a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2"/></svg>
-              </button>
-            </div>
-            <div className="flex gap-2">
-              <div className="w-[100px] h-16 bg-gray-300 rounded animate-pulse"></div>
-              <div className="w-[1px] bg-gray-300"></div>
-              <div className="w-[100px] h-16 bg-gray-300 rounded animate-pulse"></div>
-              <div className="w-[1px] bg-gray-300"></div>
-              <div className="w-[100px] h-16 bg-gray-300 rounded animate-pulse"></div>
-              <div className="w-[1px] bg-gray-300"></div>
-              <div className="w-[100px] h-16 bg-gray-300 rounded animate-pulse"></div>
-            </div>
-          </div>
-        </div>
-        <div className="w-full h-[11rem] flex justify-between border border-gray-300 p-2 rounded-xl">
-          {/* Left side */}
-          <div className="flex gap-4">
-            {/* Image */}
-            <div className="w-[8rem] h-full bg-gray-200 rounded-xl animate-pulse"></div>
-            <div className="flex flex-col justify-between">
-              {/* Titre */}
-              <p className="text-lg text-gray-700 font-bold">Lorem Ipsum Title</p>
-              <p className="text-sm font-medium text-gray-400 max-w-[500px] line-clamp-3 text-balance">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat sed consequuntur unde voluptatum assumenda possimus aliquam similique eveniet incidunt labore! Illum a aliquam perspiciatis sunt laudantium? Ullam nostrum quasi in.</p>
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2">
-                <span className="text-xs font-medium text-gray-700 bg-gray-200 px-2 py-1 rounded-full">Tag 1</span>
-                <span className="text-xs font-medium text-gray-700 bg-gray-200 px-2 py-1 rounded-full">Tag 2</span>
-              </div>
-            </div>
-          </div>
-          {/* Right side */}
-          <div className="flex flex-col justify-between items-end">
-            <div className="flex items-center gap-4">
-              {/* Visits counts */}
-              <div className="flex gap-2 p-2 hover:bg-gray-100 rounded-xl">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-700" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5"/></svg>
-                <p className="text-sm font-medium text-gray-700">0</p>
-              </div>
-              {/* Published status */}
-              <span className="bg-green-100 text-green-700 border-2 border-green-600 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-2.5 h-2.5 me-1.5" viewBox="0 0 32 32"><circle cx="16" cy="16" r="8" fill="currentColor"/></svg>
-                Publié
               </span>
               {/* Actions */}
               <button className="flex items-center font-semibold w-6 h-6 rounded border-2 border-gray-300">

@@ -1,7 +1,14 @@
+"use client";
+
+import React, { useState } from 'react'
+import { signOut, useSession } from 'next-auth/react'
 import Image from 'next/image'
-import React from 'react'
+import Link from 'next/link';
 
 const Navbar = () => {
+  const { data: session } = useSession()
+  const [userDropdown, setUserDropdown] = useState(false)
+
   return (
     <div className="flex justify-between items-center border-b px-8 py-2 shadow sticky top-0 z-50 bg-white">
         <form>
@@ -43,11 +50,23 @@ const Navbar = () => {
           {/* Divider */}
           <div className="w-[1px] h-6 mx-1 bg-gray-300"></div>
           {/* Avatar */}
-          <div className="flex items-center cursor-pointer">
-            <div className="flex items-center gap-2">
-                <span className="font-semibold">Olivier</span>
-                <Image src="/assets/149071.png" width={25} height={25} alt="profile"/>
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24"><path fill="currentColor" d="m7 10l5 5l5-5z"/></svg>
+          <div className="relative flex items-center cursor-pointer">
+            <div className="flex items-center gap-2 py-2" onClick={() => setUserDropdown(!userDropdown)}>
+              {session?.user?.name && <span className="font-semibold">{session?.user?.name?.split(" ")[0]}</span>}
+              {session?.user?.image && <Image src={session?.user?.image} width={25} height={25} className='rounded-full' alt="profile"/>}
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-500" viewBox="0 0 24 24"><path fill="currentColor" d="m7 10l5 5l5-5z"/></svg>
+            </div>
+            {/* Menu */}
+            <div className={`${userDropdown ? "block" : "hidden"} absolute -bottom-1 translate-y-full right-0 w-[300px] max-w-[300px] bg-white border border-gray-200 rounded-lg shadow-lg p-4 m-2`}>
+              <div className="w-full flex flex-col justify-center items-center">
+                {session?.user?.image && <Image src={session?.user?.image} width={80} height={80} className='rounded-full' alt="profile"/>}
+                <p className="text-gray-700 font-semibold mt-2">{session?.user?.name}</p>
+                <p className="text-gray-500 text-xs font-medium mt-1">{session?.user?.email}</p>
+                <div className="w-full flex justify-between mt-8">
+                  <Link href="/profile" className="text-gray-500 hover:text-gray-700 font-semibold p-2 rounded hover:bg-gray-100">Profil</Link>
+                  <button className="text-red-500 font-semibold hover:text-red-700 p-2 rounded hover:bg-red-100" onClick={() => signOut()}>Deconnexion</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -1,13 +1,17 @@
-import Image from 'next/image'
+"use client";
+
 import React from 'react'
+import { useSession } from 'next-auth/react'
 
 const Dashboard = () => {
+  const { data: session } = useSession()
+
   return (
     <div className="w-full p-8">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-semibold text-gray-900">Welcome Back, Olivier 👋</h1>
-          <p className="text-gray-500 text-sm">Présentation dela vue générale de vos activités et gestion de votre espace.</p>
+          <h1 className="text-2xl font-semibold text-gray-900">Welcome Back, {session?.user?.name ? session?.user?.name.split(" ")[0] : "User Indextv"} 👋</h1>
+          <p className="text-gray-500 text-sm">Présentation de la vue générale de vos activités et gestion de votre espace.</p>
         </div>
         <div className="flex gap-2">
           <button data-dropdown-toggle="dropdown" className="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">
@@ -17,6 +21,12 @@ const Dashboard = () => {
           <button data-dropdown-toggle="dropdown" className="text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">
             Exporter
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 ml-2" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6m-1 1.5L18.5 9H13m-4.07 3.22H16v7.07l-2.12-2.12L11.05 20l-2.83-2.83l2.83-2.82" /></svg>
+          </button>
+          {/* Divider */}
+          <div className="w-px bg-gray-200"></div>{/* Add video button */}
+          <button type="button" className="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-1" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
+            Nouveau KPI
           </button>
         </div>
       </div>
@@ -62,7 +72,7 @@ const Dashboard = () => {
                 {/* Texte */}
                 <p className="text-[15px] leading-5 font-medium text-slate-800">Utilisateurs</p>
               </div>
-              <div className="flex justify-center items-center p-2 hover:bg-slate-100 rounded-full cursor-pointer">
+              <div className="flex justify-center items-center p-2 hover:bg-orange-500/10 rounded-full cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-6 h-6 text-slate-800' viewBox="0 0 24 24"><path fill="currentColor" d="M16 12a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2" /></svg>
               </div>
             </div>
@@ -79,7 +89,7 @@ const Dashboard = () => {
                 {/* Texte */}
                 <p className="text-[15px] leading-5 font-medium text-slate-800">Abonnements</p>
               </div>
-              <div className="flex justify-center items-center p-2 hover:bg-slate-100 rounded-full cursor-pointer">
+              <div className="flex justify-center items-center p-2 hover:bg-orange-500/10 rounded-full cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-6 h-6 text-slate-800' viewBox="0 0 24 24"><path fill="currentColor" d="M16 12a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2" /></svg>
               </div>
             </div>
@@ -96,7 +106,7 @@ const Dashboard = () => {
                 {/* Texte */}
                 <p className="text-[15px] leading-5 font-medium text-slate-800">Autres</p>
               </div>
-              <div className="flex justify-center items-center p-2 hover:bg-slate-100 rounded-full cursor-pointer">
+              <div className="flex justify-center items-center p-2 hover:bg-orange-500/10 rounded-full cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-6 h-6 text-slate-800' viewBox="0 0 24 24"><path fill="currentColor" d="M16 12a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2" /></svg>
               </div>
             </div>

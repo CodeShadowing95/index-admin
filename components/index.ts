@@ -1,12 +1,21 @@
+// Layout
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
 
+// Pages
 import Dashboard from "./Dashboard";
 import LocalInfos from "./LocalInfos";
 import Videos from "./Videos";
-import VideoCard from "./VideoCard";
+import IndexMembers from "./IndexMembers";
+import Services from "./Services";
 import LoginForm from "./LoginForm";
 
+// Components
+import VideoCard from "./VideoCard";
+import UserCard from "./UserCard";
+import ServiceCard from "./ServiceCard";
+
+// Providers
 import Provider from "./Provider";
 
 export {
@@ -16,8 +25,12 @@ export {
     Dashboard,
     LocalInfos,
     Videos,
-    VideoCard,
+    IndexMembers,
+    Services,
     LoginForm,
+    VideoCard,
+    UserCard,
+    ServiceCard,
 
     Provider,
 }

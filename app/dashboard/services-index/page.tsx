@@ -1,8 +1,11 @@
+import { Services } from '@/components'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>page</div>
+    <div className="w-full p-8">
+      <Services />
+    </div>
   )
 }
 
