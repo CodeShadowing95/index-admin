@@ -70,21 +70,39 @@ const Videos = () => {
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex mt-8">
-        <div className="flex justify-center items-center px-4 py-3 border-b-[3px] border-blue-500 hover:bg-blue-100 rounded-t-lg text-sm font-bold capitalize cursor-pointer">
+      <div className="flex mt-4 border-b">
+        <div className="flex justify-center items-center px-4 py-3 border-b-[3px] border-blue-500 text-blue-500 hover:bg-blue-100 rounded-t-lg text-sm font-bold cursor-pointer">
           Toutes
         </div>
-        <div className="flex justify-center items-center px-4 py-3 text-sm font-medium hover:bg-gray-100 rounded-t-lg capitalize cursor-pointer">
-          la télé d{`'`}Index
+        <div className="flex justify-center items-center px-4 py-3 text-sm font-semibold hover:bg-gray-100 rounded-t-lg cursor-pointer">
+          La Télé d{`'`}Index (0)
         </div>
-        <div className="flex justify-center items-center px-4 py-3 text-sm font-medium hover:bg-gray-100 rounded-t-lg capitalize cursor-pointer">
-          bien-être
+        <div className="flex justify-center items-center px-4 py-3 text-sm font-semibold hover:bg-gray-100 rounded-t-lg cursor-pointer">
+          Bien-être (0)
+        </div>
+      </div>
+
+      {/* Options */}
+      <div className="flex justify-between mt-4 mb-6">
+        <div className="flex gap-2">
+          <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="px-3 py-2 text-xs font-medium text-center text-gray-700 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 inline-flex items-center" type="button">
+            Les 7 derniers jours 
+            <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            </svg>
+          </button>
+          <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="px-3 py-2 text-xs font-medium text-center text-gray-700 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 inline-flex items-center" type="button">
+            Trier 
+            <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+            </svg>
+          </button>
         </div>
       </div>
 
       {/* Videos listing */}
       {isGrid ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-6">
           {/* Video item */}
           {Array.from({ length: 8 }).map((_, index) => (
             <VideoCard
