@@ -65,7 +65,7 @@ const Navbar = () => {
                 <Link href="/profile" className="text-gray-500 hover:text-gray-700 font-semibold p-2 rounded hover:bg-gray-100">Profil</Link>
                 <button className="text-red-500 font-semibold hover:text-red-700 p-2 rounded hover:bg-red-100"
                   onClick={() => {
-                    localStorage.removeItem("selected")
+                    localStorage.setItem("selected", "");
                     signOut()
                   }}
                 >Deconnexion</button>

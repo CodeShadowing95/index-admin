@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { useSession } from 'next-auth/react'
+import { ChartExample } from '@/components';
 
 const Dashboard = () => {
   const { data: session } = useSession()
@@ -15,7 +16,7 @@ const Dashboard = () => {
         </div>
         <div className="flex gap-2">
           <button data-dropdown-toggle="dropdown" className="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">
-            Tout
+            Général
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 ml-2" viewBox="0 0 24 24"><path fill="currentColor" d="m7 10l5 5l5-5z" /></svg>
           </button>
           <button data-dropdown-toggle="dropdown" className="text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center" type="button">
@@ -25,15 +26,15 @@ const Dashboard = () => {
           {/* Divider */}
           <div className="w-px bg-gray-200" />
           <button type="button" className="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-1" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
             Nouveau KPI
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 ml-2" viewBox="0 0 24 24"><path fill="currentColor" d="M22 5v2h-3v3h-2V7h-3V5h3V2h2v3zm-3 14H5V5h6V3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-6h-2zm-4-6v4h2v-4zm-4 4h2V9h-2zm-2 0v-6H7v6z"/></svg>
           </button>
         </div>
       </div>
       <div className="h-[1px] bg-gray-200 my-6"></div>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {/* Card "Nombre de visiteurs" */}
-        <div className="h-fit p-1 rounded-lg shadow-lg relative overflow-hidden">
+        <div className="p-1 rounded-lg shadow-lg relative overflow-hidden">
           {/* Overlay & content */}
           <div className="absolute inset-0 bg-gray-600 overflow-hidden -z-10">
             <div className="absolute -top-12 -right-12 w-52 h-52">
@@ -63,7 +64,7 @@ const Dashboard = () => {
         </div>
         <div className="bg-orange-50 rounded-lg">
           <div className="w-full z-10 p-4">
-            <div className="w-full flex items-center justify-between">
+            <div className="w-full flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
                 {/* Image */}
                 <div className="flex justify-center items-center p-2 bg-white shadow rounded-lg overflow-hidden">
@@ -76,11 +77,14 @@ const Dashboard = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-6 h-6 text-slate-800' viewBox="0 0 24 24"><path fill="currentColor" d="M16 12a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2" /></svg>
               </div>
             </div>
+            <div className="flex items-center gap-2">
+              <ChartExample type="line" />
+            </div>
           </div>
         </div>
         <div className="bg-orange-50 rounded-lg">
           <div className="w-full z-10 p-4">
-            <div className="w-full flex items-center justify-between">
+            <div className="w-full flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
                 {/* Image */}
                 <div className="flex justify-center items-center p-2 bg-white shadow rounded-lg overflow-hidden">
@@ -92,6 +96,9 @@ const Dashboard = () => {
               <div className="flex justify-center items-center p-2 hover:bg-orange-500/10 rounded-full cursor-pointer">
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-6 h-6 text-slate-800' viewBox="0 0 24 24"><path fill="currentColor" d="M16 12a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2" /></svg>
               </div>
+            </div>
+            <div className="flex items-center gap-2">
+              <ChartExample type="bar" />
             </div>
           </div>
         </div>

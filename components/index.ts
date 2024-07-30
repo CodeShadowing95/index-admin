@@ -7,6 +7,7 @@ import VideoCard from "./VideoCard";
 import UserCard from "./UserCard";
 import ServiceCard from "./ServiceCard";
 import LoginForm from "./LoginForm";
+import ChartExample from "./ChartExample";
 
 // ModalOverlay
 import ModalOverlay from "./ModalOverlay";
@@ -22,6 +23,7 @@ export {
     VideoCard,
     UserCard,
     ServiceCard,
+    ChartExample,
 
     ModalOverlay,
 
