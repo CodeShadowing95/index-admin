@@ -42,7 +42,7 @@ const VideoCard = ({ thumbnail, title, description, videoSrc }: { thumbnail: str
           {/* Duration */}
           <div className="absolute bottom-2 right-2 flex items-center gap-2 p-1 rounded-md bg-black/50 text-white">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m4.2 14.2L11 13V7h1.5v5.2l4.5 2.7z" /></svg>
-            <p className="font-light text-sm">02:57</p>
+            <p className="text-xs">02:57</p>
           </div>
 
         </div>
@@ -50,8 +50,18 @@ const VideoCard = ({ thumbnail, title, description, videoSrc }: { thumbnail: str
       <div className="px-6 py-4">
         <div className="flex justify-between">
           <div className="font-bold text-xl mb-2">{title}</div>
-          {/* Fully rounded buttons with bg-white and shadow Edit and Delete */}
-          <div className="flex justify-start opacity-0 group-hover:opacity-100 transition-all">
+        </div>
+        <p className="text-gray-700 text-sm line-clamp-3 mt-2">
+          {description}
+        </p>
+        {/* Divider */}
+        <div className="w-full h-[1px] bg-gray-300 my-4" />
+        <div className="flex justify-between items-center">
+          <button className="text-white bg-green-700 hover:bg-green-900 focus:outline-none font-medium rounded-lg text-xs px-3 py-2 text-center inline-flex items-center" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-1" viewBox="0 0 24 24"><path fill="currentColor" d="M5 4v2h14V4zm0 10h4v6h6v-6h4l-7-7z"/></svg>
+            Publier
+          </button>
+          <div className="flex">
             <div className="flex justify-center items-center w-8 h-8 text-gray-500 rounded-full hover:bg-gray-200 cursor-pointer">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83l3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"/></svg>
             </div>
@@ -60,9 +70,6 @@ const VideoCard = ({ thumbnail, title, description, videoSrc }: { thumbnail: str
             </div>
           </div>
         </div>
-        <p className="text-gray-700 text-sm line-clamp-3 mt-2">
-          {description}
-        </p>
       </div>
     </div>
   )

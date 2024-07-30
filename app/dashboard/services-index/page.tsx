@@ -1,4 +1,4 @@
-import { Services } from '@/components'
+import { Services } from '@/pages'
 import React from 'react'
 
 const page = () => {

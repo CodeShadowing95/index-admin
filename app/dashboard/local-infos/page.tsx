@@ -1,4 +1,4 @@
-import { LocalInfos } from '@/components'
+import { LocalInfos } from '@/pages'
 import React from 'react'
 
 const page = () => {

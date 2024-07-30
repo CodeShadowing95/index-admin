@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from 'react'
-import ServiceCard from './ServiceCard';
+import { ServiceCard } from '@/components';
 
 const Services = () => {
   const [isGrid, setIsGrid] = useState(true)
@@ -27,7 +27,7 @@ const Services = () => {
             )}
           </button>
           {/* Divider */}
-          <div className="w-px bg-gray-200"></div>
+          <div className="w-px bg-gray-200" />
           {/* Add video button */}
           <button type="button" className="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-1" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>

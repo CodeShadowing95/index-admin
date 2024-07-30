@@ -23,7 +23,7 @@ const LocalInfos = () => {
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 ml-1 text-gray-700" viewBox="0 0 24 24"><path fill="currentColor" d="m7 10l5 5l5-5z" /></svg>
           </button>
           {/* Divider */}
-          <div className="w-px bg-gray-200"></div>
+          <div className="w-px bg-gray-200" />
           <button type="button" className="px-3 py-2 text-sm font-medium text-center inline-flex items-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-1 text-white" viewBox="0 0 24 24"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6z"/></svg>
             Nouvelle IL
@@ -73,7 +73,7 @@ const LocalInfos = () => {
                       Modifier
                     </div>
                     {/* Divider */}
-                    <div className="w-full h-[1px] bg-gray-300 my-1"></div>
+                    <div className="w-full h-[1px] bg-gray-300 my-1" />
                     <div className="flex items-center gap-2 p-1 hover:bg-red-100 rounded text-[13px] text-red-500">
                       Supprimer
                     </div>
