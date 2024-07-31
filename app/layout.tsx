@@ -1,4 +1,4 @@
-import { Navbar, Sidebar, Provider } from '@/components';
+import { Provider } from '@/components';
 import '@/styles/globals.css';
 
 export const metadata = {

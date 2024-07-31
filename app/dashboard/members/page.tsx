@@ -1,4 +1,4 @@
-import { IndexMembers } from '@/pages'
+import { IndexMembers } from '@/pages-routes'
 import React from 'react'
 
 const page = () => {

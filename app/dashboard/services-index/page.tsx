@@ -1,4 +1,4 @@
-import { Services } from '@/pages'
+import { Services } from '@/pages-routes'
 import React from 'react'
 
 const page = () => {

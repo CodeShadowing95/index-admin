@@ -46,7 +46,7 @@ const Login = () => {
     <main className="flex w-[100dvw] h-[100dvh] flex-col items-center justify-center bg-red-200">
       {/* Banner */}
       <div className="fixed inset-0 z-10">
-        <Image src="/assets/banner_login.jpg" alt="banner" width={2000} height={2000} className="max-w-full max-h-full object-cover" />
+        <Image src="/assets/banner_login.jpg" alt="banner" width={2000} height={2000} className="w-full h-full object-cover" />
       </div>
 
       {/* Overlay */}

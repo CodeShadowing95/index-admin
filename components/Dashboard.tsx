@@ -31,7 +31,7 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
-      <div className="h-[1px] bg-gray-200 my-6"></div>
+      <div className="h-[1px] bg-gray-200 my-6" />
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {/* Card "Nombre de visiteurs" */}
         <div className="p-1 rounded-lg shadow-lg relative overflow-hidden">

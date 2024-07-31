@@ -1,4 +1,4 @@
-import { Videos } from '@/pages'
+import { Videos } from '@/pages-routes'
 import React from 'react'
 
 const page = () => {

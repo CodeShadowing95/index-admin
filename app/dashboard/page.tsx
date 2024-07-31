@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dashboard } from '@/pages';
+import { Dashboard } from '@/pages-routes';
 
 const Home = () => {
 
