@@ -129,12 +129,23 @@ const Sidebar = () => {
             </li>
             <li>
               <Link href="/dashboard/report" className="flex items-center gap-2 font-medium p-2 text-sm rounded hover:bg-orange-50" onClick={() => handleItemClick("Signaler")} onMouseEnter={() => setTooltip("Signaler")} onMouseLeave={() => setTooltip("")}>
-                <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24"><path fill="currentColor" d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z" /></svg>
-                <p className={`${isCollapsed ? "hidden" : "hidden md:block"}`}>Signaler</p>
+                <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24"><path fill="currentColor" d="M21 0H3C1.9 0 1 .9 1 2v16c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V2c0-1.1-.9-2-2-2m0 5H3V2h18zM7 22h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>
+                <p className={`${isCollapsed ? "hidden" : "hidden md:block"}`}>Logs d{`'`}activités</p>
 
                 {/* Tooltip */}
                 <div role="tooltip" className={`absolute -right-1 translate-x-full w-fit z-50 inline-block px-3 py-2 text-sm font-medium text-white text-nowrap bg-gray-800 rounded-lg shadow-sm transition-all ${tooltip === "Signaler" && isCollapsed ? "opacity-100 visible" : "opacity-0 invisible"}`}>
-                  Signaler
+                  Logs d{`'`}activités
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link href="/dashboard/report" className="flex items-center gap-2 font-medium p-2 text-sm rounded hover:bg-orange-50" onClick={() => handleItemClick("Signaler")} onMouseEnter={() => setTooltip("Signaler")} onMouseLeave={() => setTooltip("")}>
+                <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24"><path fill="currentColor" d="m2 21l21-9L2 3v7l15 2l-15 2z"/></svg>
+                <p className={`${isCollapsed ? "hidden" : "hidden md:block"}`}>Feedback</p>
+
+                {/* Tooltip */}
+                <div role="tooltip" className={`absolute -right-1 translate-x-full w-fit z-50 inline-block px-3 py-2 text-sm font-medium text-white text-nowrap bg-gray-800 rounded-lg shadow-sm transition-all ${tooltip === "Signaler" && isCollapsed ? "opacity-100 visible" : "opacity-0 invisible"}`}>
+                  Feedback
                 </div>
               </Link>
             </li>

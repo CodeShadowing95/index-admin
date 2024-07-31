@@ -20,15 +20,6 @@ const Videos = () => {
   // Search term
   const [selectedSearchTerm, setSelectedSearchTerm] = useState(1)
 
-  // Disable scroll on the modal when it's open
-  useEffect(() => {
-    if (toggleModalCategory || toggleModalVideo) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'auto'
-    }
-  }, [toggleModalCategory, toggleModalVideo])
-
   // Close the dropdown when the user clicks outside of it
   useEffect(() => {
     const handleClickOutside = (event: any) => {
@@ -57,7 +48,7 @@ const Videos = () => {
     <div className="flex-1">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Nos Vidéos</h1>
+          <h1 className="text-2xl font-semibold text-gray-900">Nos Vidéos</h1>
           <p className="text-gray-500 text-sm">Gestion des vidéos de votre espace.</p>
         </div>
         <div className="flex gap-1">
@@ -109,7 +100,7 @@ const Videos = () => {
       </div>
 
       {/* Options */}
-      <div className="flex justify-between items-center mt-4 mb-6">
+      <div className="flex justify-between items-center my-6">
         <div className="flex gap-2">
           <button id="dropdownPeriod" data-dropdown-toggle="dropdown" className="relative px-3 py-2 text-xs font-medium text-center text-gray-700 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 inline-flex items-center" type="button" onClick={() => setTogglePeriodDropdown(!togglePeriodDropdown)}>
             Les 7 derniers jours

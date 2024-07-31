@@ -10,7 +10,7 @@ import LoginForm from "./LoginForm";
 import ChartExample from "./ChartExample";
 
 // ModalOverlay
-import ModalOverlay from "./ModalOverlay";
+import ModalOverlay from "./Modals/ModalOverlay";
 
 // Providers
 import Provider from "./Provider";

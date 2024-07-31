@@ -5,7 +5,7 @@ const LocalInfos = () => {
     <div className="w-full">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-xl font-bold text-gray-900">Infos Locales</h1>
+          <h1 className="text-2xl font-semibold text-gray-900">Infos Locales</h1>
           <p className="text-gray-500 text-sm">Gestion des informations locales de votre espace.</p>
         </div>
         <div className="flex gap-2">

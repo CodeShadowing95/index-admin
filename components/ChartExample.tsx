@@ -1,5 +1,5 @@
 import React from 'react'
-import { Line, Bar, Radar } from 'react-chartjs-2'
+import { Line, Bar, Bubble } from 'react-chartjs-2'
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, BarElement, ArcElement } from 'chart.js'
 
 ChartJS.register(
@@ -42,7 +42,7 @@ const ChartExample = ({ type }: { type: string }) => {
         <div>
             {type === 'line' && (<Line options={options} data={data} />)}
             {type === 'bar' && (<Bar options={options} data={data} />)}
-            {type === 'radar' && (<Radar options={options} data={data} />)}
+            {type === 'bubble' && (<Bubble options={options} data={data} />)}
         </div>        
     )
 }
