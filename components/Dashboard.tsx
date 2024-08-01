@@ -8,11 +8,12 @@ import ModalKpi from './Modals/ModalKpi';
 const Dashboard = () => {
   const { data: session } = useSession()
 
-  // Dropdowns
+  // Dropdowns & Menus
   const [togglePeriod, setTogglePeriod] = useState(false)
+  const [selectedPeriod, setSelectedPeriod] = useState("Semaine")
+  const [parameter, setParameter] = useState("Général")
   // Modals
   const [toggleModalKpi, setToggleModalKpi] = useState(false)
-  const [parameter, setParameter] = useState("Général")
 
   // Close the dropdown when the user clicks outside of it
   useEffect(() => {
@@ -31,7 +32,7 @@ const Dashboard = () => {
 
 
   return (
-    <div className="w-full p-8">
+    <>
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-semibold text-gray-900">Welcome Back, {session?.user?.name ? session?.user?.name.split(" ")[0] : "User Indextv"} 👋</h1>
@@ -44,25 +45,25 @@ const Dashboard = () => {
       </div>
       {/* Options */}
       <div className="w-full flex justify-between items-center mt-10">
-        <div className="flex gap-2 p-1 bg-gray-200 rounded-lg">
+        <div className="flex gap-2 p-1 bg-gray-200 rounded-lg shadow">
           <button data-dropdown-toggle="dropdown" className={`text-gray-900 ${parameter === "Général" ? "bg-white" : "hover:bg-gray-100"} focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-xs px-5 py-2 text-center inline-flex items-center`} type="button" onClick={() => setParameter("Général")}>Général</button>
           <button data-dropdown-toggle="dropdown" className={`text-gray-900  ${parameter === "Tracking" ? "bg-white" : "hover:bg-gray-100"} focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-xs px-5 py-2 text-center inline-flex items-center`} type="button" onClick={() => setParameter("Tracking")}>Tracking</button>
         </div>
         <div className="flex gap-2">
           <div className='relative'>
-            <button data-dropdown-toggle="dropdown" id='dropdown-period' className="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-xs px-5 py-2 text-center inline-flex items-center" type="button" onClick={() => setTogglePeriod(!togglePeriod)}>
+            <button data-dropdown-toggle="dropdown" id='dropdown-period' className="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 font-medium rounded-lg text-xs px-5 py-2 text-center inline-flex items-center shadow" type="button" onClick={() => setTogglePeriod(!togglePeriod)}>
               Semaine
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 ml-2" viewBox="0 0 24 24"><path fill="currentColor" d="m7 10l5 5l5-5z" /></svg>
             </button>
             {/* Dropdown menu */}
             <div className={`absolute left-0 p-2 -bottom-2 translate-y-full origin-bottom-left w-32 z-10 ${togglePeriod ? "" : "hidden"} bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}>
-              <button className="w-full flex items-center gap-2 p-2 rounded hover:bg-gray-100 text-sm text-gray-900">Jour</button>
-              <button className="w-full flex items-center gap-2 p-2 rounded hover:bg-gray-100 text-sm text-gray-900">Semaine</button>
-              <button className="w-full flex items-center gap-2 p-2 rounded hover:bg-gray-100 text-sm text-gray-900">Mois</button>
-              <button className="w-full flex items-center gap-2 p-2 rounded hover:bg-gray-100 text-sm text-gray-900">Année</button>
+              <button className={`w-full flex items-center gap-2 p-2 rounded ${selectedPeriod === "Jour" ? "bg-gray-200" : "hover:bg-gray-100"} text-sm text-gray-900`} onClick={() => setSelectedPeriod("Jour")}>Jour</button>
+              <button className={`w-full flex items-center gap-2 p-2 rounded ${selectedPeriod === "Semaine" ? "bg-gray-200" : "hover:bg-gray-100"} text-sm text-gray-900`} onClick={() => setSelectedPeriod("Semaine")}>Semaine</button>
+              <button className={`w-full flex items-center gap-2 p-2 rounded ${selectedPeriod === "Mois" ? "bg-gray-200" : "hover:bg-gray-100"} text-sm text-gray-900`} onClick={() => setSelectedPeriod("Mois")}>Mois</button>
+              <button className={`w-full flex items-center gap-2 p-2 rounded ${selectedPeriod === "Année" ? "bg-gray-200" : "hover:bg-gray-100"} text-sm text-gray-900`} onClick={() => setSelectedPeriod("Année")}>Année</button>
             </div>
           </div>
-          <button data-dropdown-toggle="dropdown" className="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-xs px-5 py-2 text-center inline-flex items-center" type="button">
+          <button data-dropdown-toggle="dropdown" className="text-gray-900 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-xs px-5 py-2 text-center inline-flex items-center shadow" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-2" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6m-1 1.5L18.5 9H13m-4.07 3.22H16v7.07l-2.12-2.12L11.05 20l-2.83-2.83l2.83-2.82" /></svg>
             Exporter
           </button>
@@ -78,7 +79,7 @@ const Dashboard = () => {
               <svg xmlns="http://www.w3.org/2000/svg" className='w-full h-full opacity-10' viewBox="0 0 24 24"><path fill="currentColor" d="M16.5 15.5c1.72 0 3.75.8 4 1.28v.72h-8v-.72c.25-.48 2.28-1.28 4-1.28m0-1.5c-1.83 0-5.5.92-5.5 2.75V19h11v-2.25c0-1.83-3.67-2.75-5.5-2.75M9 13c-2.33 0-7 1.17-7 3.5V19h7v-1.5H3.5v-1c0-.63 2.79-2.16 6.32-2a5.1 5.1 0 0 1 1.55-1.25A12.3 12.3 0 0 0 9 13m0-6.5A1.5 1.5 0 1 1 7.5 8A1.5 1.5 0 0 1 9 6.5M9 5a3 3 0 1 0 3 3a3 3 0 0 0-3-3m7.5 3.5a1 1 0 1 1-1 1a1 1 0 0 1 1-1m0-1.5A2.5 2.5 0 1 0 19 9.5A2.5 2.5 0 0 0 16.5 7" /></svg>
             </div>
           </div>
-          <div className="w-full z-10 p-4">
+          <div className="w-full p-4">
             <div className="w-full flex items-center justify-between">
               <div className="flex items-center gap-2">
                 {/* Image */}
@@ -99,7 +100,12 @@ const Dashboard = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-4 h-4 inline ml-1 text-green-600' viewBox="0 0 24 24"><path fill="currentColor" d="m16 6l2.29 2.29l-4.88 4.88l-4-4L2 16.59L3.41 18l6-6l4 4l6.3-6.29L22 12V6z"/></svg>
               </div>
             </div>
-            <p className="text-[13px] leading-5 text-white mt-4">par rapport aux 7 derniers jours </p>
+            <p className="text-[13px] leading-5 text-white mt-4">
+              {selectedPeriod === "Jour" && "Par rapport aux dernières 24 heures"}
+              {selectedPeriod === "Semaine" && "Par rapport aux 7 derniers jours"}
+              {selectedPeriod === "Mois" && "Par rapport aux 30 derniers jours"}
+              {selectedPeriod === "Année" && "Par rapport aux 12 derniers mois"}
+            </p>
           </div>
         </div>
         <div className="p-1 rounded-lg shadow-lg relative overflow-hidden">
@@ -130,7 +136,12 @@ const Dashboard = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-4 h-4 ml-1 inline text-blue-600' viewBox="0 0 24 24"><path fill="currentColor" d="m22 12l-4-4v3H3v2h15v3z"/></svg>
               </div>
             </div>
-            <p className="text-[13px] leading-5 text-white mt-4">par rapport aux 7 derniers jours </p>
+            <p className="text-[13px] leading-5 text-white mt-4">
+              {selectedPeriod === "Jour" && "Par rapport aux dernières 24 heures"}
+              {selectedPeriod === "Semaine" && "Par rapport aux 7 derniers jours"}
+              {selectedPeriod === "Mois" && "Par rapport aux 30 derniers jours"}
+              {selectedPeriod === "Année" && "Par rapport aux 12 derniers mois"}
+            </p>
           </div>
         </div>
         <div className="p-1 rounded-lg shadow-lg relative overflow-hidden">
@@ -161,7 +172,12 @@ const Dashboard = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-4 h-4 inline ml-1 text-green-600' viewBox="0 0 24 24"><path fill="currentColor" d="m16 6l2.29 2.29l-4.88 4.88l-4-4L2 16.59L3.41 18l6-6l4 4l6.3-6.29L22 12V6z"/></svg>
               </div>
             </div>
-            <p className="text-[13px] leading-5 text-white mt-4">par rapport aux 7 derniers jours </p>
+            <p className="text-[13px] leading-5 text-white mt-4">
+              {selectedPeriod === "Jour" && "Par rapport aux dernières 24 heures"}
+              {selectedPeriod === "Semaine" && "Par rapport aux 7 derniers jours"}
+              {selectedPeriod === "Mois" && "Par rapport aux 30 derniers jours"}
+              {selectedPeriod === "Année" && "Par rapport aux 12 derniers mois"}
+            </p>
           </div>
         </div>
         <div className="p-1 rounded-lg shadow-lg relative overflow-hidden">
@@ -192,7 +208,12 @@ const Dashboard = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 inline ml-1 text-red-600" viewBox="0 0 24 24"><path fill="currentColor" d="m16 18l2.29-2.29l-4.88-4.88l-4 4L2 7.41L3.41 6l6 6l4-4l6.3 6.29L22 12v6z"/></svg>
               </div>
             </div>
-            <p className="text-[13px] leading-5 text-white mt-4">par rapport aux 7 derniers jours </p>
+            <p className="text-[13px] leading-5 text-white mt-4">
+              {selectedPeriod === "Jour" && "Par rapport aux dernières 24 heures"}
+              {selectedPeriod === "Semaine" && "Par rapport aux 7 derniers jours"}
+              {selectedPeriod === "Mois" && "Par rapport aux 30 derniers jours"}
+              {selectedPeriod === "Année" && "Par rapport aux 12 derniers mois"}
+            </p>
           </div>
         </div>
       </div>
@@ -221,7 +242,7 @@ const Dashboard = () => {
           onToggleModal={setToggleModalKpi}
         />
       )}
-    </div>
+    </>
   )
 }
 

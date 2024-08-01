@@ -10,12 +10,17 @@ const Sidebar = () => {
   const { data: session, status } = useSession()
   const router = useRouter()
   const [selected, setSelected] = useState("Home");
-  const [isCollapsed, setIsCollapsed] = useState(false)
+  const [isCollapsed, setIsCollapsed] = useState(localStorage.getItem("isCollapsed") === "true");
   const [tooltip, setTooltip] = useState("")
 
   const handleItemClick = (item: string) => {
     setSelected(item);
     localStorage.setItem("selected", item);
+  };
+
+  const handleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+    localStorage.setItem("isCollapsed", JSON.stringify(!isCollapsed));
   };
 
   useEffect(() => {
@@ -26,13 +31,14 @@ const Sidebar = () => {
 
   useEffect(() => {
     setSelected(localStorage.getItem("selected") || "Home")
+    setIsCollapsed(JSON.parse(localStorage.getItem("isCollapsed") || "false"))
   }, [])
 
   return (
     <div className={`sticky top-0 h-screen flex flex-col ${isCollapsed ? "w-16" : "md:w-64 sm:w-16"} transition-all bg-[#de7665]/70`}>
       <div className="h-full pt-4 flex flex-col justify-between relative">
         {/* Collapse sidebar button */}
-        <div className="absolute top-20 right-0 translate-x-1/2 z-10 p-1 border-2 border-gray-300 rounded-full bg-white flex items-center justify-center cursor-pointer hover:bg-orange-100" onClick={() => setIsCollapsed(!isCollapsed)}>
+        <div className="absolute top-20 right-0 translate-x-1/2 z-10 p-1 border-2 border-gray-300 rounded-full bg-white flex items-center justify-center cursor-pointer hover:bg-orange-100" onClick={handleCollapse}>
           {isCollapsed ? (
             <svg xmlns="http://www.w3.org/2000/svg" className='w-3 h-3 text-gray-500 rotate-180 transition-all duration-300' viewBox="0 0 24 24"><path fill="currentColor" d="M15.41 16.58L10.83 12l4.58-4.59L14 6l-6 6l6 6z"/></svg>
           ) : (
@@ -114,7 +120,7 @@ const Sidebar = () => {
             </li>
           </ul>
           {/* Divider */}
-          <div className="h-px bg-gray-200/40 my-4" />
+          <div className="h-px bg-index-100 my-4" />
           <ul className="mt-2 space-y-2">
             <li>
               <Link href="/dashboard/settings" className="flex items-center gap-2 font-medium p-2 text-sm rounded hover:bg-orange-50" onClick={() => handleItemClick("Paramètres")} onMouseEnter={() => setTooltip("Paramètres")} onMouseLeave={() => setTooltip("")}>

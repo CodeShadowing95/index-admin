@@ -10,7 +10,7 @@ const Services = () => {
     <div className="flex-1">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-xl font-bold text-gray-900">Nos Services</h1>
+          <h1 className="text-2xl font-semibold text-gray-900">Nos Services</h1>
           <p className="text-gray-500 text-sm">Gestion des services proposés aux utilisateurs.</p>
         </div>
         <div className="flex gap-2">
