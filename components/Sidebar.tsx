@@ -10,7 +10,7 @@ const Sidebar = () => {
   const { data: session, status } = useSession()
   const router = useRouter()
   const [selected, setSelected] = useState("Home");
-  const [isCollapsed, setIsCollapsed] = useState(localStorage.getItem("isCollapsed") === "true");
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [tooltip, setTooltip] = useState("")
 
   const handleItemClick = (item: string) => {
@@ -19,8 +19,13 @@ const Sidebar = () => {
   };
 
   const handleCollapse = () => {
-    setIsCollapsed(!isCollapsed);
-    localStorage.setItem("isCollapsed", JSON.stringify(!isCollapsed));
+    setIsCollapsed(prevState => {
+      const newState = !prevState
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('isCollapsed', newState.toString())
+      }
+      return newState
+    })
   };
 
   useEffect(() => {
@@ -30,8 +35,25 @@ const Sidebar = () => {
   }, [router, session, status])
 
   useEffect(() => {
-    setSelected(localStorage.getItem("selected") || "Home")
-    setIsCollapsed(JSON.parse(localStorage.getItem("isCollapsed") || "false"))
+    if (typeof window !== 'undefined') {
+      const storedValue = localStorage.getItem('isCollapsed') === 'true'
+      setIsCollapsed(storedValue)
+    }
+  }, [])
+
+  useEffect(() => {
+    setSelected(prevState =>  {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem("selected", prevState)
+      }
+      return prevState || "Home"
+    })
+    setIsCollapsed(prevState => {
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('isCollapsed', prevState.toString())
+      }
+      return prevState || false
+    })
   }, [])
 
   return (
