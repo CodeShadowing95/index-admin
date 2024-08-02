@@ -55,6 +55,7 @@ const Sidebar = () => {
       return prevState || false
     })
   }, [])
+  
 
   return (
     <div className={`sticky top-0 h-screen flex flex-col ${isCollapsed ? "w-16" : "md:w-64 sm:w-16"} transition-all bg-[#de7665]/70`}>
