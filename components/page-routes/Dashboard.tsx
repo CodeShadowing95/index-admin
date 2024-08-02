@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
 import { ChartExample } from '@/components';
-import ModalKpi from './Modals/ModalKpi';
+import { ModalKpi } from '@/components/Modals';
 
 const Dashboard = () => {
   const { data: session } = useSession()

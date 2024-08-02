@@ -1,5 +1,5 @@
-import { Videos } from '@/pages-routes'
 import React from 'react'
+import { Videos } from '@/components/page-routes'
 
 const page = () => {
   return (

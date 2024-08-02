@@ -1,5 +1,5 @@
-import { LocalInfos } from '@/pages-routes'
 import React from 'react'
+import { LocalInfos } from '@/components/page-routes'
 
 const page = () => {
   return (

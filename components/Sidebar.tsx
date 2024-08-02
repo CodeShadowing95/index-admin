@@ -51,7 +51,7 @@ const Sidebar = () => {
           <div className="w-full flex justify-center">
             <Image src="/assets/logo-index-ok.png" alt="Logo" width={150} height={150} />
           </div>
-          <ul className="mt-12 space-y-2">
+          <ul className="my-12 space-y-2">
             <li>
               <Link href="/dashboard" className={`relative flex items-center gap-2 p-2 rounded text-sm ${selected === "Home" ? "bg-white font-semibold" : "font-medium hover:bg-orange-50"}`} onClick={() => handleItemClick("Home")} onMouseEnter={() => setTooltip("Dashboard")} onMouseLeave={() => setTooltip("")}>
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24"><path fill="currentColor" d="M13 3v6h8V3m-8 18h8V11h-8M3 21h8v-6H3m0-2h8V3H3z" /></svg>
@@ -107,29 +107,17 @@ const Sidebar = () => {
                 </div>
               </Link>
             </li>
+          </ul>
+          <p className={`${isCollapsed ? "hidden" : "hidden md:block"} text-sm font-medium text-black/50 px-2 mb-4`}>Paramètres</p>
+          <ul className="mt-2 space-y-2">
             <li>
               <Link href="/dashboard/members" className={`flex items-center gap-2 p-2 text-sm rounded ${selected === "Utilisateurs" ? "bg-white font-semibold" : "font-medium hover:bg-orange-50"}`} onClick={() => handleItemClick("Utilisateurs")} onMouseEnter={() => setTooltip("Utilisateurs")} onMouseLeave={() => setTooltip("")}>
                 <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24"><path fill="currentColor" d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9A3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42c-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3a3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3a3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9c-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65c2.56.34 4.45 1.51 4.45 2.9z" /></svg>
-                <p className={`${isCollapsed ? "hidden" : "hidden md:block"}`}>Utilisateurs</p>
+                <p className={`${isCollapsed ? "hidden" : "hidden md:block"}`}>Administrateurs</p>
 
                 {/* Tooltip */}
                 <div role="tooltip" className={`absolute -right-1 translate-x-full w-fit z-50 inline-block px-3 py-2 text-sm font-medium text-white text-nowrap bg-gray-800 rounded-lg shadow-sm transition-all ${tooltip === "Utilisateurs" && isCollapsed ? "opacity-100 visible" : "opacity-0 invisible"}`}>
-                  Utilisateurs
-                </div>
-              </Link>
-            </li>
-          </ul>
-          {/* Divider */}
-          <div className="h-px bg-index-100 my-4" />
-          <ul className="mt-2 space-y-2">
-            <li>
-              <Link href="/dashboard/settings" className="flex items-center gap-2 font-medium p-2 text-sm rounded hover:bg-orange-50" onClick={() => handleItemClick("Paramètres")} onMouseEnter={() => setTooltip("Paramètres")} onMouseLeave={() => setTooltip("")}>
-                <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24"><path fill="currentColor" d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z" /></svg>
-                <p className={`${isCollapsed ? "hidden" : "hidden md:block"}`}>Paramètres</p>
-
-                {/* Tooltip */}
-                <div role="tooltip" className={`absolute -right-1 translate-x-full w-fit z-50 inline-block px-3 py-2 text-sm font-medium text-white text-nowrap bg-gray-800 rounded-lg shadow-sm transition-all ${tooltip === "Paramètres" && isCollapsed ? "opacity-100 visible" : "opacity-0 invisible"}`}>
-                  Paramètres
+                  Administrateurs
                 </div>
               </Link>
             </li>
@@ -146,12 +134,12 @@ const Sidebar = () => {
             </li>
             <li>
               <Link href="/dashboard/report" className="flex items-center gap-2 font-medium p-2 text-sm rounded hover:bg-orange-50" onClick={() => handleItemClick("Signaler")} onMouseEnter={() => setTooltip("Signaler")} onMouseLeave={() => setTooltip("")}>
-                <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24"><path fill="currentColor" d="m2 21l21-9L2 3v7l15 2l-15 2z"/></svg>
-                <p className={`${isCollapsed ? "hidden" : "hidden md:block"}`}>Feedback</p>
+                <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5' viewBox="0 0 24 24"><path fill="currentColor" d="M12 15.5A3.5 3.5 0 0 1 8.5 12A3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5a3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97s-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.42l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1s.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1.01c.52.4 1.06.74 1.69.99l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.26 1.17-.59 1.69-.99l2.49 1.01c.22.08.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64z"/></svg>
+                <p className={`${isCollapsed ? "hidden" : "hidden md:block"}`}>Préférences</p>
 
                 {/* Tooltip */}
                 <div role="tooltip" className={`absolute -right-1 translate-x-full w-fit z-50 inline-block px-3 py-2 text-sm font-medium text-white text-nowrap bg-gray-800 rounded-lg shadow-sm transition-all ${tooltip === "Signaler" && isCollapsed ? "opacity-100 visible" : "opacity-0 invisible"}`}>
-                  Feedback
+                  Préférences
                 </div>
               </Link>
             </li>

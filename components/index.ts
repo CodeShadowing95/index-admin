@@ -9,8 +9,9 @@ import ServiceCard from "./ServiceCard";
 import LoginForm from "./LoginForm";
 import ChartExample from "./ChartExample";
 
-// ModalOverlay
-import ModalOverlay from "./Modals/ModalOverlay";
+// Modals
+import { ModalOverlay } from "./Modals";
+
 
 // Providers
 import Provider from "./Provider";
