@@ -25,14 +25,14 @@ const handler = NextAuth({
       });
 
       session.user.id = sessionUser._id.toString();
-      console.log(session);
+      // console.log(session);
       
 
       return session;
     },
     async signIn({ profile }: any) {
       try {
-        console.log("Profile: ", profile);
+        // console.log("Profile: ", profile);
 
         await connect_to_db();
 
