@@ -58,7 +58,7 @@ const Sidebar = () => {
   
 
   return (
-    <div className={`sticky top-0 h-screen flex flex-col ${isCollapsed ? "w-16" : "md:w-64 sm:w-16"} transition-all bg-[#de7665]/70`}>
+    <div className={`sticky top-0 h-screen max-sm:hidden flex flex-col ${isCollapsed ? "w-16" : "md:w-64 sm:w-16"} transition-all bg-[#de7665]/70`}>
       <div className="h-full pt-4 flex flex-col justify-between relative">
         {/* Collapse sidebar button */}
         <div className="absolute top-20 right-0 translate-x-1/2 z-10 p-1 border-2 border-gray-300 rounded-full bg-white flex items-center justify-center cursor-pointer hover:bg-orange-100" onClick={handleCollapse}>
