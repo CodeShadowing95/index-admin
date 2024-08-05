@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import { VideoCard } from '@/components'
 import { ModalCategory, ModalVideo } from '@/components/Modals';
+import { AddVideoBtn } from '../mobile';
 
 const Videos = () => {
   // Category & Subcategory
@@ -45,13 +46,17 @@ const Videos = () => {
   }, [toggleAddDropdown, togglePeriodDropdown, toggleSortDropdown, toggleSearchTermDropdown])
 
   return (
-    <div className="flex-1">
+    <div className="flex-1 relative">
+      {/* Mobile - Add Video STARTS */}
+      <AddVideoBtn />
+      {/* Mobile - Add Video ENDS */}
+
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-semibold text-gray-900">Nos Vidéos</h1>
           <p className="text-gray-500 text-sm">Gestion des vidéos de votre espace.</p>
         </div>
-        <div className="flex gap-1">
+        <div className="sm:flex hidden gap-1">
           {/* More options */}
           <button className="text-gray-500 bg-white hover:bg-gray-100 focus:outline-none focus:bg-gray-100 font-medium rounded-lg text-sm px-2 py-1.5 text-center inline-flex items-center" type="button">
             <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-gray-700" viewBox="0 0 24 24"><path fill="currentColor" d="M16 12a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2" /></svg>
@@ -100,7 +105,7 @@ const Videos = () => {
       </div>
 
       {/* Options */}
-      <div className="flex justify-between items-center my-6">
+      <div className="flex justify-between max-xl:flex-col items-center gap-4 my-6">
         <div className="flex gap-2">
           <button id="dropdownPeriod" data-dropdown-toggle="dropdown" className="relative px-3 py-2 text-xs font-medium text-center text-gray-700 bg-white rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 inline-flex items-center" type="button" onClick={() => setTogglePeriodDropdown(!togglePeriodDropdown)}>
             Les 7 derniers jours
@@ -143,10 +148,10 @@ const Videos = () => {
             </div>
           </button>
         </div>
-        <div className="flex gap-2">
+        <div className="flex max-lg:flex-col max-lg:items-center gap-2">
           <form className="max-w-lg mx-auto">
-            <div className="flex gap-2">
-              <button id="dropdown-button" className="relative flex-shrink-0 z-10 inline-flex items-center py-2 px-4 text-xs font-medium text-center text-gray-600 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none hover:bg-gray-200" type="button" onClick={() => setToggleSearchTermDropdown(!toggleSearchTermDropdown)}>
+            <div className="flex gap-2 md:flex-row flex-col">
+              <button id="dropdown-button" className="relative flex-shrink-0 z-10 inline-flex justify-between items-center py-2 px-4 text-xs font-medium text-center text-gray-600 bg-gray-100 border border-gray-300 rounded-lg focus:outline-none hover:bg-gray-200" type="button" onClick={() => setToggleSearchTermDropdown(!toggleSearchTermDropdown)}>
                 Sous-catégories: <span className="font-semibold ml-1">Toutes</span> 
                 <svg className="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4" />
@@ -169,25 +174,27 @@ const Videos = () => {
             </div>
           </form>
           {/* Divider */}
-          <div className="w-px bg-gray-300" />
-          {/* Disposition */}
-          <button className="text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg p-2 text-center inline-flex items-center" type="button" onClick={() => setIsGrid(!isGrid)}>
-            {isGrid ? (
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-700" viewBox="0 0 24 24"><path fill="currentColor" d="M3 11h8V3H3m0 18h8v-8H3m10 8h8v-8h-8m0-10v8h8V3" /></svg>
-            ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-700" viewBox="0 0 24 24"><path fill="currentColor" d="M7 5h14v2H7zm0 8v-2h14v2zM4 4.5A1.5 1.5 0 0 1 5.5 6A1.5 1.5 0 0 1 4 7.5A1.5 1.5 0 0 1 2.5 6A1.5 1.5 0 0 1 4 4.5m0 6A1.5 1.5 0 0 1 5.5 12A1.5 1.5 0 0 1 4 13.5A1.5 1.5 0 0 1 2.5 12A1.5 1.5 0 0 1 4 10.5M7 19v-2h14v2zm-3-2.5A1.5 1.5 0 0 1 5.5 18A1.5 1.5 0 0 1 4 19.5A1.5 1.5 0 0 1 2.5 18A1.5 1.5 0 0 1 4 16.5" /></svg>
-            )}
-          </button>
-          <button className="text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-xs px-3 py-2 text-center inline-flex items-center" type="button">
-            Exporter
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 ml-2" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6m-1 1.5L18.5 9H13m-4.07 3.22H16v7.07l-2.12-2.12L11.05 20l-2.83-2.83l2.83-2.82" /></svg>
-          </button>
+          <div className="w-px bg-gray-300 lg:block hidden" />
+          <div className="flex gap-2">
+            {/* Disposition */}
+            <button className="text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg p-2 text-center inline-flex items-center" type="button" onClick={() => setIsGrid(!isGrid)}>
+              {isGrid ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-700" viewBox="0 0 24 24"><path fill="currentColor" d="M3 11h8V3H3m0 18h8v-8H3m10 8h8v-8h-8m0-10v8h8V3" /></svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 text-gray-700" viewBox="0 0 24 24"><path fill="currentColor" d="M7 5h14v2H7zm0 8v-2h14v2zM4 4.5A1.5 1.5 0 0 1 5.5 6A1.5 1.5 0 0 1 4 7.5A1.5 1.5 0 0 1 2.5 6A1.5 1.5 0 0 1 4 4.5m0 6A1.5 1.5 0 0 1 5.5 12A1.5 1.5 0 0 1 4 13.5A1.5 1.5 0 0 1 2.5 12A1.5 1.5 0 0 1 4 10.5M7 19v-2h14v2zm-3-2.5A1.5 1.5 0 0 1 5.5 18A1.5 1.5 0 0 1 4 19.5A1.5 1.5 0 0 1 2.5 18A1.5 1.5 0 0 1 4 16.5" /></svg>
+              )}
+            </button>
+            <button className="text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-xs px-3 py-2 text-center inline-flex items-center" type="button">
+              Exporter
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 ml-2" viewBox="0 0 24 24"><path fill="currentColor" d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6m-1 1.5L18.5 9H13m-4.07 3.22H16v7.07l-2.12-2.12L11.05 20l-2.83-2.83l2.83-2.82" /></svg>
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Videos listing */}
       {isGrid ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mt-6">
           {/* Video item */}
           {Array.from({ length: 8 }).map((_, index) => (
             <VideoCard

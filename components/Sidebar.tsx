@@ -9,7 +9,7 @@ import Link from 'next/link';
 const Sidebar = () => {
   const { data: session, status } = useSession()
   const router = useRouter()
-  const [selected, setSelected] = useState("Home");
+  const [selected, setSelected] = useState("");
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [tooltip, setTooltip] = useState("")
 
