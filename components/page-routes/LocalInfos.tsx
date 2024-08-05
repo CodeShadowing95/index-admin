@@ -35,8 +35,6 @@ const LocalInfos = () => {
         </div>
         <div className="flex gap-2">
           <input type="text" className="block w-[250px] p-2.5 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 outline-none" placeholder="Rechercher une information..." />
-          {/* Divider */}
-          <div className="w-px bg-gray-200" />
         </div>
       </div>
 
