@@ -1,7 +1,10 @@
-import React from 'react'
+"use client";
+
+import React, { useState } from 'react'
 import { Navbar, Sidebar } from '@/components'
 
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {
+
   return (
     <div className="w-full min-h-[100dvh] flex relative">
       <Sidebar />

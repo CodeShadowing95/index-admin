@@ -8,11 +8,14 @@ import Link from 'next/link';
 const Navbar = () => {
   const { data: session } = useSession()
   const [userDropdown, setUserDropdown] = useState(false)
+  const [toggleSidebar, setToggleSidebar] = useState(false)
+  const [toggleContent, setToggleContent] = useState(false)
 
   return (
-    <div className="flex justify-between items-center border-b px-8 py-2 shadow sticky top-0 z-50 bg-white">
+    <div className="flex justify-between items-center border-b px-8 py-2 shadow sticky top-0 z-40 bg-white">
       <div className="flex items-center gap-1">
-        <div className="sm:hidden flex w-10 h-10 justify-center items-center rounded-lg bg-white hover:bg-gray-100">
+        {/* Mobile */}
+        <div className="sm:hidden flex w-10 h-10 justify-center items-center rounded-lg bg-white hover:bg-gray-100" onClick={() => setToggleSidebar(!toggleSidebar)}>
           <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 text-gray-500" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
         </div>
         <form>
@@ -29,7 +32,7 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center gap-2">
-        <div className="flex items-center gap-2">
+        <div className="sm:flex hidden items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M9 10v2H7v-2zm4 0v2h-2v-2zm4 0v2h-2v-2zm2-7a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1V1h2v2h8V1h2v2zm0 16V8H5v11zM9 14v2H7v-2zm4 0v2h-2v-2zm4 0v2h-2v-2z" /></svg>
           <p className="text-gray-500 text-sm font-medium">
             {new Date().toLocaleString('fr-FR', {
@@ -41,7 +44,7 @@ const Navbar = () => {
           </p>
         </div>
         {/* Divider */}
-        <div className="w-[1px] h-6 mx-1 bg-gray-300" />
+        <div className="sm:flex hidden w-[1px] h-6 mx-1 bg-gray-300" />
         {/* Bouton Notifications */}
         <button className="sm:flex hidden items-center font-semibold p-2 rounded hover:bg-orange-100 relative">
           <svg xmlns="http://www.w3.org/2000/svg" className='w-5 h-5 text-gray-700' viewBox="0 0 24 24"><path fill="currentColor" d="M21 19v1H3v-1l2-2v-6c0-3.1 2.03-5.83 5-6.71V4a2 2 0 0 1 2-2a2 2 0 0 1 2 2v.29c2.97.88 5 3.61 5 6.71v6zm-7 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2" /></svg>
@@ -111,6 +114,14 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      
+
+      {/* Mobile */}
+      <div className={`fixed inset-0 ${toggleSidebar ? "flex" : "hidden"} justify-end bg-neutral-900/40 z-50 overflow-hidden transition-all duration-300 ease-in-out`}>
+        <div className={`w-full max-w-sm bg-white rounded-lg ease-out transition-transform duration-200 transform ${toggleContent ? 'translate-x-0' : '-translate-x-[150%]'}`}>
+          
         </div>
       </div>
     </div>
